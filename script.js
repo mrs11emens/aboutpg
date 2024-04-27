@@ -1,11 +1,12 @@
-// Анимация при скролле
+// Scroll animation
 window.addEventListener('scroll', () => {
+    // Creating consts which contains detection of website position and sections
     const sections = document.querySelectorAll('.section');
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const bottomThreshold = document.body.clientHeight - windowHeight;
 
-    // Если достигнут конец страницы, показываем последние две секции
+    // If scroll reaches the end of website, script will show only 2 last sections
     if (scrollTop >= bottomThreshold) {
         sections.forEach((section, index) => {
             if (index >= sections.length - 2) {
@@ -15,7 +16,7 @@ window.addEventListener('scroll', () => {
             }
         });
     } else {
-        // Проверяем видимость каждой секции
+        // Checking for every section to be visible
         sections.forEach(section => {
             if (isInViewport(section)) {
                 section.classList.add('active');
@@ -25,32 +26,38 @@ window.addEventListener('scroll', () => {
         });
     }
 });
-// Модальный контент
+// Modal contents, made for dividing section content from modal. Section content shows enshortened information, while modal shows full info
 const modalContents = {
-    about: "I'm ..., a c# & golang programmer, based everywhere. I have a passion for coding and enjoy working on various projects. For today, i haven't released my projects, but soon they will be on my GitHub(or other open-source code portals).",
-    portfolio: "Explore some of my recent projects. Here you can find a showcase of my work, including RESTful API projects, WinForms & Xamarin (coming soon) projects. For today, I've worked (Except of those listed before) with web development(This page), Tk games. Planning on creating a chat using websocket & asterisk.",
-    opensource: "<a href='https://github.com/mrs11emens'>Check out my contributions to the open-source community</a>. I believe in the power of collaboration and enjoy sharing my code with others",
-    contact: "Feel free to get in touch with me. Whether you have a project idea, a question, or just want to say hello, I'd love to hear from you. Telegram: coming soon, mail's coming soon."
+    // in about you can post information like your nickname: "I'm [nickname], a [your work or something else], based [optional, your region, country or continent] I have a [passion/smth else] for [your work your passinated/else]
+    about: "I'm ..., a ... programmer, based everywhere. I have a ... for ... For today, i haven't released my projects, but soon they will be on my GitHub(or other open-source code portals).",
+    // in portfolio you can post some of your closed/Opensrc projects
+    portfolio: "Explore some of my recent projects. Here you can find a showcase of my work, including .... For today, I've worked on ...",
+    // in opensource send your countributions to not your projects
+    opensource: "Check out my contributions to the open-source community</a>. I believe in the power of collaboration and enjoy sharing my code with others",
+    // Contacts to talk or send ideas,else
+    contact: "Feel free to get in touch with me. Whether you have a project idea, a question, or just want to say hello, I'd love to hear from you."
 };
 
-// Открытие модального окна с указанным контентом
+// Open modal(modal is the window in web), name of functions tells by itself
 function openModal(sectionId) {
+    // That's modal const variable creation
     const modal = document.getElementById('modal');
+    // Creating modal content variable
     const modalContent = document.getElementById('modal-content');
 
-    // Получаем текст для модального окна по ID секции
+    // Getting text to modal, from modalContents with sectionId, means for section with sectionId "about" it will show modalContents.about 
     const content = modalContents[sectionId];
 
-    // Вставляем текст в модальное окно
+    // Inserting text in modal
     modalContent.innerHTML = content;
     modal.style.display = 'block';
 }
-// Закрытие модального окна при клике на крестик
+// Closing a modal.
 document.getElementById('close-modal').addEventListener('click', () => {
     closeModal();
 });
 
-// Закрытие модального окна при клике вне его области
+// Closing a modal (probably not work, if not - fixed soon)
 window.addEventListener('click', (event) => {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
@@ -58,19 +65,19 @@ window.addEventListener('click', (event) => {
     }
 });
 
-// Закрытие модального окна с анимацией
+// Creating an animation to close modal
 function closeModal() {
     const modal = document.getElementById('modal');
-    modal.style.transition = 'opacity 0.5s ease'; // добавляем плавность перехода
-    modal.style.opacity = '0'; // устанавливаем прозрачность 0
+    modal.style.transition = 'opacity 0.5s ease'; // make anim smooth
+    modal.style.opacity = '0'; // no opacity
     setTimeout(() => {
-        modal.style.display = 'none'; // скрываем модальное окно после завершения анимации
-        modal.style.transition = ''; // сбрасываем стиль перехода
-        modal.style.opacity = ''; // сбрасываем прозрачность
-    }, 500); // время анимации в миллисекундах
+        modal.style.display = 'none'; // making modal invisible after closing
+        modal.style.transition = ''; // removing transition after closing
+        modal.style.opacity = ''; // removing opacity
+    }, 500); // anim time, ms
 }
 
-// Проверка, виден ли элемент во viewport
+// is element visible in viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
