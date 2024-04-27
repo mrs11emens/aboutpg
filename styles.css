@@ -1,20 +1,21 @@
-/* Обнуляем отступы и поля */
+/* Destroying  */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Устанавливаем шрифт */
+/* font creation */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1a1a1a; /* темно-серый фон */
-    color: #fff; /* белый текст */
-    overflow-x: hidden; /* запрещаем горизонтальный скроллинг */
+    background-color: #1a1a1a; /* Darky bg */
+    color: #fff; /* white text */
+    overflow-x: hidden; /* no x scrolling, only y */
 }
 
+/* creating container */
 .container {
-    max-width: 1200px;
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -30,7 +31,7 @@ header {
 header h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* тень текста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* shading text */
 }
 
 header p {
@@ -40,31 +41,31 @@ header p {
 /* Разделы */
 .section {
     padding: 80px 0;
-    background-color: #1a1a1a; /* темно-серый фон */
-    color: #fff; /* белый текст */
+    background-color: #1a1a1a; /* dark gray bg */
+    color: #fff; /* white text */
     opacity: 0;
     border-radius: 20px;
     transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease, border-radius 0.5s ease; /* добавляем анимацию скругления углов */
-    cursor: pointer; /* курсор в виде указателя при наведении */
+    transition: opacity 0.8s ease, transform 0.8s ease, border-radius 0.5s ease; /* round angles */
+    cursor: pointer; /* click coursor by hover */
 }
 
 .section.active {
     opacity: 1;
     transform: translateY(0);
-    border-radius: 0; /* убираем скругление углов при появлении */
+    border-radius: 0; /* no round angles */
 }
 
 .section:hover {
-    background-color: #292929; /* темно-серый фон при наведении */
-    border-radius: 20px; /* скругляем углы при ховере */
+    background-color: #292929; /* dark gray by hover */
+    border-radius: 20px; /* by hover round angles */
 }
 
 .section h2 {
     font-size: 3em;
     margin-bottom: 40px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* тень текста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* text shading */
 }
 
 .section p {
@@ -72,28 +73,28 @@ header p {
     line-height: 1.6;
 }
 
-/* Ссылки */
+/* links */
 a {
-    color: #4e8cff; /* голубой */
+    color: #4e8cff; /* blue */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #3385ff; /* темно-голубой при наведении */
+    color: #3385ff; /* dark blue by hover */
 }
 
-/* Модальное окно */
+/* modal */
 .modal {
-    display: none; /* скрываем модальное окно по умолчанию */
+    display: none; /* no modal */
     position: fixed;
     z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* полупрозрачный черный фон */
-    animation: fadeIn 0.5s ease; /* плавное появление */
+    background-color: rgba(0, 0, 0, 0.7); /* half black bg */
+    animation: fadeIn 0.5s ease; /* smooth hover */
 }
 
 .modal-content {
@@ -101,10 +102,10 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #292929; /* темно-серый фон */
+    background-color: #292929; /* dark gray bg */
     padding: 40px;
     border-radius: 20px;
-    animation: slideIn 0.5s ease; /* плавное появление */
+    animation: slideIn 0.5s ease; /* smooth */
 }
 
 .close {
@@ -112,12 +113,12 @@ a:hover {
     top: 20px;
     right: 20px;
     font-size: 2em;
-    color: #fff; /* белый текст */
+    color: #fff; /* white */
     cursor: pointer;
 }
 
 .close:hover {
-    color: #ccc; /* серый текст при наведении */
+    color: #ccc; /* gray */
 }
 
 @keyframes fadeIn {
