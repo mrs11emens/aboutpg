@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1 id="welcome">Welcome to ... Website</h1>
+        <p>Discover my projects and learn more about me.</p>
+    </div>
+</header>
+
+
+<section id="about" class="section" onclick="openModal('about')">
+    <div class="container">
+        <h2 id="about-title">About</h2>
+        <p class="summary" id="about-summary">I'm ..., a c# & golang programmer, based everywhere.</p>
+    </div>
+</section>
+
+<section id="portfolio" class="section" onclick="openModal('portfolio')">
+    <div class="container">
+        <h2 id="portfolio-title">Portfolio</h2>
+        <p class="summary" id="portfolio-summary">Explore some of my recent projects.</p>
+    </div>
+</section>
+
+<section id="opensource" class="section" onclick="openModal('opensource')">
+    <div class="container">
+        <h2 id="opensource-title">Open Source Projects</h2>
+        <p class="summary" id="opensource-summary">Check out my contributions to the open-source community.</p>
+    </div>
+</section>
+
+<section id="contact" class="section" onclick="openModal('contact')">
+    <div class="container">
+        <h2 id="contact-title">Contact</h2>
+        <p class="summary" id="contact-summary">Feel free to get in touch with me.</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p id="rights">© 2024 <scro11fade></scro11fade>. All rights reserved.</p>
+    </div>
+</footer>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
